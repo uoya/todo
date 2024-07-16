@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Analytics
+    - name: Analyize
       run: go vet ./... && go fmt ./...
 
     - uses: actions/checkout@v4
