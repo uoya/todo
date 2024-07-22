@@ -3,7 +3,7 @@
 //   sqlc v1.26.0
 // source: query.sql
 
-package db
+package tododb
 
 import (
 	"context"
@@ -18,7 +18,7 @@ ORDER BY name
 `
 
 func (q *Queries) QueryTodos(ctx context.Context) ([]Todo, error) {
-	rows, err := q.db.Query(ctx, queryTodos)
+	rows, err := q.db.QueryContext(ctx, queryTodos)
 	if err != nil {
 		return nil, err
 	}
@@ -36,6 +36,9 @@ func (q *Queries) QueryTodos(ctx context.Context) ([]Todo, error) {
 			return nil, err
 		}
 		items = append(items, i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
 	}
 	if err := rows.Err(); err != nil {
 		return nil, err

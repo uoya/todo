@@ -2,17 +2,19 @@
 // versions:
 //   sqlc v1.26.0
 
-package db
+package tododb
 
 import (
+	"database/sql"
+	"time"
+
 	"github.com/google/uuid"
-	"github.com/jackc/pgx/v5/pgtype"
 )
 
 type Todo struct {
 	ID          uuid.UUID
 	Name        string
-	Description pgtype.Text
+	Description sql.NullString
 	Done        bool
-	Createat    pgtype.Timestamp
+	Createat    time.Time
 }
