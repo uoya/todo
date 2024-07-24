@@ -17,3 +17,8 @@ xc -version
 ```sh
 go vet . && go fmt .
 ```
+
+### exec tasks in other markdow file
+```sh
+xc -file sample/TASKS.md "show go version"
+```
