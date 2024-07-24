@@ -15,10 +15,10 @@ import (
 )
 
 type Todo struct {
-	ID uuid.UUID
-	Name string
+	ID          uuid.UUID
+	Name        string
 	Description string
-	Done bool
+	Done        bool
 }
 
 func main() {
@@ -29,7 +29,7 @@ func main() {
 	}
 }
 
-func run () error {
+func run() error {
 	ctx := context.Background()
 	db, err := sql.Open("postgres", "host=localhost port=15432 user=postgres password=postgres dbname=postgres sslmode=disable")
 	if err != nil {
@@ -37,7 +37,7 @@ func run () error {
 	}
 
 	defer db.Close()
-	
+
 	queries := tododb.New(db)
 
 	todos, err := queries.QueryTodos(ctx)

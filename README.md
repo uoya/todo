@@ -13,15 +13,7 @@ go install github.com/joerdav/xc/cmd/xc@latest
 xc -version
 ```
 
-### hello
-Prints hello
+### lint & fmt
 ```sh
-echo hello
-```
-
-### 日本語
-日本語でこんにちはを出力
-Requires: hello
-```
-echo こんにちは
+go vet . && go fmt .
 ```

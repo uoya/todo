@@ -5,7 +5,7 @@ import (
 )
 
 func TestRun(t *testing.T) {
-	result := true 
+	result := true
 	if result != true {
 		t.Fatal("failed test")
 	}
